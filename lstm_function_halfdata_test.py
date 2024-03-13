@@ -19,17 +19,13 @@ os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 #---------------------------------------------------------------------
 
 def get_data(test_size=0.2, random_state=0):
-    file_path = 'Data_noaa_copernicus/noaa_avhrr/noaa_icesmi_combinefile.nc'
+    file_path = '../data/noaa_icesmi_combinefile.nc'
     ds = xr.open_dataset(file_path)
 
     # Filter data for time range (from 1/1/1993 to 31/12/2023)
     start_date = pd.to_datetime('1993-01-01')
     end_date = pd.to_datetime('2023-12-31')
     ds_filtered = ds.sel(time=slice(start_date, end_date))
-
-    days = ds_filtered['time'].values
-    lat = ds_filtered['lat'].values
-    lon = ds_filtered['lon'].values
 
     # Preprocess data, handling NaN values by avoiding them
     sst_data = ds_filtered['sst'].values
