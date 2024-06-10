@@ -3,7 +3,7 @@
 
 This repository contains code and resources for training and optimizing/tuning deep learning models like Convolution Neural Network (CNN), Long Short Term Memory (LSTM), Variational Autoencoder (VAE), and their hybrids, to predict and analyze sea surface temperature (SST) data. The dataset taken is daily netCDF data from 1982 to 2023 with a resolution of 0.25 for now. More tuning have to be done using 0.25 resolution data and later on 0.05 resolution data as well using different hyperparameters..<br>
 
-##Why These Models
+***Why These Models***
 
 **1. Long Short-Term Memory (LSTM)<br>**
 LSTMs excel in handling sequential data, making them ideal for modeling the temporal aspect of SST time series data.<br>
