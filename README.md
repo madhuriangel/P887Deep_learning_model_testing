@@ -3,17 +3,20 @@
 
 This repository contains code and resources for training and optimizing/tuning deep learning models like Convolution Neural Network (CNN), Long Short Term Memory (LSTM), Variational Autoencoder (VAE), and their hybrids, to predict and analyze sea surface temperature (SST) data. The dataset taken is daily netCDF data from 1982 to 2023 with a resolution of 0.25 for now. More tuning have to be done using 0.25 resolution data and later on 0.05 resolution data as well using different hyperparameters..<br>
 
-@@***Why These Models***@@
+***Why These Models<br>***
 
 **1. Long Short-Term Memory (LSTM)<br>**
 LSTMs excel in handling sequential data, making them ideal for modeling the temporal aspect of SST time series data.<br>
-###How LSTM Works?
+
+***How LSTM Works?<br>***
+
 LSTMs address the vanishing gradient problem faced by traditional Recurrent neural network (RNNs) by incorporating memory units with three gates:<br>
 
 **Forget Gate:** Decides what information to discard from the cell state.<br>
 **Input Gate:** Decides which values from the input will update the cell state.<br>
 **Output Gate:** Controls the output and updates the hidden state.<br>
-###Why LSTM?
+
+***Why LSTM?<br>***
 LSTM networks are chosen for this task because they capture long-term dependencies in time series data, making them suitable for accurate forecasting over extended periods.<br>
 For now, it is discussed about training, testing and preliminary results of LSTM.<br>
 
@@ -26,18 +29,20 @@ VAEs can learn efficient data representations and generate synthetic data, which
 **4. Hybrid Models<br>**
 Combining CNNs and LSTMs leverages both spatial and temporal features, providing a comprehensive approach to predicting SST.<br>
 
-###Training, validation and testing dataset
+**Training, validation and testing dataset<br>**
+
 Splitting of training, validation and testing data<br>
 **Training Data:** 1982-2021 (80% training, 20% validation randomly selected)<br>
 **Test Data:** 2022-2023<br>
+
 **Dependencies<br>**
 Python 3.9.7 (higher version to be upgraded)<br>
 Keras API with TensorFlow backend<br>
 
-##Model Training
+**Model Training<br>**
 Use the following hyperparameters for training our models:<br>
 
-###Hyperparameters
+**Hyperparameters<br>**
 **Learning Rate (LR): [0.001, 0.0001, 0.01]br**
 Controls the speed of the learning process. Too high a value might overshoot the minima, while too low can lead to a long training process.<br>
 
@@ -62,7 +67,7 @@ Regularization technique to prevent overfitting by randomly setting a fraction o
 **Sequence Length: [30, 60, 90]<br>**
 The number of previous days used to predict the next day. Longer sequences provide more context but also require more memory and computational power.<br>
 
-##Results
+**Results<br>**
 After training various models with the above hyperparameters, we observed the following optimal configuration as of now for our task (more testing to be done):<br>
 
 Learning Rate: 0.0001<br>
